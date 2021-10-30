@@ -7,8 +7,12 @@ import pandas as pd
 import numpy as np
 
 import picrossbot
+import configparser
 
-INFO_URL = "https://www.minicgi.net/logic/logic_feed.cgi?num=42467"
+config_ini = configparser.ConfigParser()
+config_ini.read("config.ini", encoding="utf-8")
+
+INFO_URL = config_ini.get("DEFAULT", "info")
 
 class Board():
 
@@ -124,9 +128,5 @@ class Board():
         for i in range(self.size):
             if check_line[i] == 2:
                 where_to_where.append(i)
-
-        print(check_line)
-        print(where_to_where)
-        print("")
 
         # print(check_line, self.clues[line_name][0], self.clues[line_name][-1])

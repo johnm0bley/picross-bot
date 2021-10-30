@@ -5,9 +5,14 @@ from selenium import webdriver
 import chromedriver_binary
 import pyautogui
 
-GAME_URL = "https://www.minicgi.net/logic/logic.html?num=42467"
-X_HOME = 945
-Y_HOME = 342
+import configparser
+
+config_ini = configparser.ConfigParser()
+config_ini.read("config.ini", encoding="utf-8")
+
+GAME_URL = config_ini.get("DEFAULT", "game")
+X_HOME = int(config_ini.get("DEFAULT", "x_home"))
+Y_HOME = int(config_ini.get("DEFAULT", "y_home"))
 
 class PicrossBot():
 

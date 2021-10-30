@@ -25,5 +25,3 @@ if __name__ == "__main__":
             board.close_absolute(index)
 
         break
-
-    print(board.sheet.values)
